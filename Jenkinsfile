@@ -23,6 +23,6 @@ node {
       archiveArtifacts 'configserver/target/*.jar'
    }
     stage('Build image') {
-        sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=819XXXXXX43.amazonaws.com/ostock -Dproject.artifactId=configserver -Ddocker.image.version=latest dockerfile:build"
+        sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=ostock -Dproject.artifactId=configserver -Ddocker.image.version=latest dockerfile:build"
     }
 }
