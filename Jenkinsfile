@@ -23,15 +23,6 @@ node {
       archiveArtifacts 'configserver/target/*.jar'
    }
     stage('Build image') {
-        sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=819XXXXXX43.dkr.ecr.us-east-2.amazonaws.com/ostock -Dproject.artifactId=configserver -Ddocker.image.version=latest dockerfile:build"
+        sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=819XXXXXX43.amazonaws.com/ostock -Dproject.artifactId=configserver -Ddocker.image.version=latest dockerfile:build"
     }
-    stage('Push image') {
-        docker.withRegistry('https://819XXXXXX43.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:ecr-user') {
-            sh "docker push 819XXXXXX43.dkr.ecr.us-east-2.amazonaws.com/ostock/configserver:latest"
-        }
-    }
-   stage('Kubernetes deploy') {
-       kubernetesDeploy configs: 'configserver-deployment.yaml', kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
-    }
-  
 }
