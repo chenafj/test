@@ -10,7 +10,8 @@ spring:
         #native:
          #search-locations: classpath:/config
         git:
-           uri: https://github.com/ihuaylupo/config.git
+           uri: https://github.com/chenafj/test
+           searchPaths: /config
     
 server:
   port: 8071

@@ -24,11 +24,6 @@
 
   <modules>
     <module>configserver</module>
-    <module>eurekaserver</module>
-    <module>gatewayserver</module>
-    <module>authentication-service</module>
-    <module>licensing-service</module>
-    <module>organization-service</module>
   </modules>
   <build>
     <plugins>
